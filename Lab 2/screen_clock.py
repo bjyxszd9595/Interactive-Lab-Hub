@@ -94,7 +94,7 @@ def back1():
 
     # Center and wrap the "no" text below "yes"
     x2 = width*0.5
-    y2 += text_height 
+    y2 = 0.2*height
     draw.text((x2, y2), content_text, fill=255, font=font)
 
     # Define the "continue" text
