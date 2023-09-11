@@ -60,16 +60,59 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
+def editImage(filename):
+    image = Image.open(filename)
+    # Scale the image to the smaller screen dimension
+    image_ratio = image.width / image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = image.width * height // image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = image.height * width // image.width
+    image = image.resize((scaled_width, scaled_height), Image.BICUBIC)
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
+    image = image.crop((x, y, x + width, y + height))
+    return image
+
+def back1():
+    disp.image(editImage('moonland.jpeg'))
+    # Define the "date" text
+    date_text = "1983/1/1"
+
+    # Center and wrap the "yes" text at the top of the screen
+    x1 = width*0.5
+    y1 = top  
+    draw.text((x1, y1), date_text, fill=255, font=font)
+
+    # Define the content text
+    content_text = "THE INVENTION OF NETWORK"
+
+    # Center and wrap the "no" text below "yes"
+    x2 = width*0.5
+    y2 += text_height 
+    draw.text((x2, y2), content_text, fill=255, font=font)
+
+    # Define the "continue" text
+    continue_text = "> Continue"
+    x3 = width*0.1
+    y3 = bottom
+    draw.text((x3, y3), continue_text, fill=255, font=font)
+
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
 
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
-    y=top
+    #y=top
     # Get the current time
-    current_time = strftime("%m/%d/%Y %H:%M:%S")
+    #current_time = strftime("%m/%d/%Y %H:%M:%S")
     # Draw the time text on the image
-    draw.text((x,y), current_time, font=font, fill=255)
+    #draw.text((x,y), current_time, font=font, fill=255)
     # Display image.
-    disp.image(image, rotation)
+    #disp.image(image, rotation)
+    back1()
     time.sleep(1)
