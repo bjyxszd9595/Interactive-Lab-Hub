@@ -80,7 +80,7 @@ image = image.crop((x, y, x + width, y + height))
    
     
 def back1():
-    disp.image(image,rotation)
+    
     # Define the "date" text
     date_text = "1983/1/1"
 
@@ -102,6 +102,7 @@ def back1():
     x3 = width*0.1
     y3 = bottom
     draw.text((x3, y3), continue_text, fill="#05b822", font=font)
+    disp.image(image,rotation)
 
 while True:
     # Draw a black filled box to clear the image.
