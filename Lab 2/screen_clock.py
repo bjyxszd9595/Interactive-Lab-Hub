@@ -102,7 +102,7 @@ def back1():
     x3 = width*0.1
     y3 = bottom
     draw.text((x3, y3), continue_text, fill="#05b822", font=font)
-    disp.image(image,rotation)
+    
 
 while True:
     # Draw a black filled box to clear the image.
