@@ -85,29 +85,23 @@ def back1():
     date_text = "1983/1/1"
 
     # Center and wrap the "yes" text at the top of the screen
-    text = textwrap.fill(date_text, width=10) 
-    text_width, text_height = draw.textsize(text, font)
-    x1 = (width - text_width) // 2
+    x1 = width*0.5
     y1 = top  
-    draw.text((x1, y1), text, fill=255, font=font)
+    draw.text((x1, y1), date_text, fill=255, font=font)
 
     # Define the content text
     content_text = "THE INVENTION OF NETWORK"
 
     # Center and wrap the "no" text below "yes"
-    text = textwrap.fill(content_text, width=10)  
-    text_width, text_height = draw.textsize(text, font)
-    x2 = (width - text_width) // 2
+    x2 = width*0.5
     y2 += text_height 
-    draw.text((x2, y2), text, fill=255, font=font)
+    draw.text((x2, y2), content_text, fill=255, font=font)
 
     # Define the "continue" text
     continue_text = "> Continue"
-    text = textwrap.fill(content_text, width=10)  
-    text_width, text_height = draw.textsize(text, font)
     x3 = width*0.1
-    y3 = height*0.7
-    draw.text((x3, y3), text, fill=255, font=font)
+    y3 = bottom
+    draw.text((x3, y3), continue_text, fill=255, font=font)
    
     
 
