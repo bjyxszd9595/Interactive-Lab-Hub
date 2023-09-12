@@ -62,7 +62,7 @@ backlight.switch_to_output()
 backlight.value = True
 
 def editImage(filename):
-    image = Image.open(filename)
+    image = Image.open(filename).convert("RGB")
     # Scale the image to the smaller screen dimension
     image_ratio = image.width / image.height
     screen_ratio = width / height
