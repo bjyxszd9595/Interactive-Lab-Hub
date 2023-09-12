@@ -110,7 +110,7 @@ while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
-    image1 =  editImage('Group 2.png') 
+    image1 =  editImage('moonland.png') 
     disp.image(image1, rotation)
     time.sleep(1)
     
