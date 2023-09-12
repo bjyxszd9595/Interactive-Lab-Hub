@@ -80,8 +80,21 @@ def editImage(filename):
     return image
 
 def back1():
-    image1 = editImage('moonland.jpeg')
-
+    image1 = Image.open('moonland.jpeg')
+    # Scale the image to the smaller screen dimension
+    image_ratio = image.width / image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = image.width * height // image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = image.height * width // image.width
+    image = image.resize((scaled_width, scaled_height), Image.BICUBIC)
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
+    image = image.crop((x, y, x + width, y + height))
     # Define the "date" text
     date_text = "1983/1/1"
 
@@ -111,13 +124,27 @@ while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
+    image1 = Image.open('moonland.jpeg')
+    # Scale the image to the smaller screen dimension
+    image_ratio = image.width / image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = image.width * height // image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = image.height * width // image.width
+    image = image.resize((scaled_width, scaled_height), Image.BICUBIC)
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
+    image = image.crop((x, y, x + width, y + height))
    
-   
-
-    back1()
-    
-    
-    
-
+    date_text = "1983/1/1"
+    y = top  
+    draw.text((x, y), date_text, font=font,fill=255)
+    disp.image(image1, rotation)
     time.sleep(1)
-
+    
+    
+    
