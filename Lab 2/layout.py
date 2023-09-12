@@ -66,11 +66,11 @@ def editImage(filename):
     
     
     # Resize the image to half of its current size
-    image = image.resize((0.4*width, 0.4*height), Image.BICUBIC)
+    image = image.resize((width // 2, height // 2), Image.BICUBIC)
 
     # Crop and center the image on the left side
     x = 0  # Adjusted to start from the left
-    y = 0.2*height
+    y = height // 5
     image = image.crop((x, y, x + width, y + height))
 
     
