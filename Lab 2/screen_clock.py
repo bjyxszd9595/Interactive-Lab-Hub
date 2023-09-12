@@ -122,5 +122,5 @@ while True:
     # Center and wrap the "yes" text at the top of the screen
     
     y1 = top  
-    draw.text((x, y1), date_text, fill=255, font=font)
+    draw.text((x, y1), date_text, font=font,fill=255)
     time.sleep(1)
