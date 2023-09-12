@@ -78,7 +78,7 @@ def editImage(filename):
 
     # Crop and center the image
     x = scaled_width // 2 - width // 2
-    y = scaled_height // 2 - height // 2 + (scaled_height - height) // 2
+    y = scaled_height // 2 - height // 2 - (scaled_height - height) // 2
     image = image.crop((x, y, x + width, y + height))
 
     
