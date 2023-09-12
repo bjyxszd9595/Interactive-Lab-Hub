@@ -85,9 +85,9 @@ def back1():
     date_text = "1983/1/1"
 
     # Center and wrap the "yes" text at the top of the screen
-    
-    y1 = top  
-    draw.text((x, y1), date_text, fill="#05b822", font=font)
+    x1=0.5*width
+    y1 = 0.5*height
+    draw.text((x1, y1), date_text, fill="#05b822", font=font)
 
     # Define the content text
     content_text = "THE INVENTION OF NETWORK"
