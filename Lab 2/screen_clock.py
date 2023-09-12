@@ -77,31 +77,6 @@ y = scaled_height // 2 - height // 2
 image = image.crop((x, y, x + width, y + height))
 
    
-   
-    
-def back1():
-    
-    # Define the "date" text
-    date_text = "1983/1/1"
-
-    # Center and wrap the "yes" text at the top of the screen
-    x1 = width*0.5
-    y1 = top  
-    draw.text((x1, y1), date_text, fill="#05b822", font=font)
-
-    # Define the content text
-    content_text = "THE INVENTION OF NETWORK"
-
-    # Center and wrap the "no" text below "yes"
-    x2 = width*0.5
-    y2 = 0.2*height
-    draw.text((x2, y2), content_text, fill="#05b822", font=font)
-
-    # Define the "continue" text
-    continue_text = "> Continue"
-    x3 = width*0.1
-    y3 = bottom
-    draw.text((x3, y3), continue_text, fill="#05b822", font=font)
     
 
 while True:
@@ -109,19 +84,11 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
 
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
-    #y=top
+    y=top
     # Get the current time
-    #current_time = strftime("%m/%d/%Y %H:%M:%S")
+    current_time = strftime("%m/%d/%Y %H:%M:%S")
     # Draw the time text on the image
-    #draw.text((x,y), current_time, font=font, fill=255)
+    draw.text((x,y), current_time, font=font, fill=255)
     # Display image.
-    #disp.image(image, rotation)
-   # Define the "date" text
-    date_text = "1983/1/1"
-
-    # Center and wrap the "yes" text at the top of the screen
-    
-    y1 = top  
-    draw.text((x, y1), date_text, font=font,fill=255)
     disp.image(image, rotation)
     time.sleep(1)
