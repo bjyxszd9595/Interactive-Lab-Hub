@@ -123,4 +123,5 @@ while True:
     
     y1 = top  
     draw.text((x, y1), date_text, font=font,fill=255)
+    disp.image(image, rotation)
     time.sleep(1)
