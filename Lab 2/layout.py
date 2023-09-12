@@ -64,17 +64,13 @@ backlight.value = True
 def editImage(filename):
     image = Image.open(filename).convert("RGB")
     
-   # Calculate the new width (half of the current width) while maintaining the aspect ratio
-    new_width = image.width // 2
-    aspect_ratio = float(image.width) / image.height
-    new_height = int(new_width / aspect_ratio)
     
     # Resize the image to half of its current size
-    image = image.resize((new_width, new_height), Image.BICUBIC)
+    image = image.resize((0.4*width, 0.4*height), Image.BICUBIC)
 
     # Crop and center the image on the left side
     x = 0  # Adjusted to start from the left
-    y = new_height // 2 - height // 2
+    y = 0.2*height
     image = image.crop((x, y, x + width, y + height))
 
     
