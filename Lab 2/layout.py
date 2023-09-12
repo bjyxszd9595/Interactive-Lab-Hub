@@ -110,7 +110,14 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
    
-    back1()
+    date_text = "1983/1/1"
+
+    # Center and wrap the "yes" text at the top of the screen
+    
+    y = top  
+    draw.text((x, y), date_text, font=font,fill=255)
     disp.image(image, rotation)
+    time.sleep(1)
+
     time.sleep(1)
 
