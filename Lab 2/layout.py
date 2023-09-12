@@ -80,7 +80,7 @@ def editImage(filename):
     return image
 
 def back1():
-    image1 = Image.open(editImage('moonland.jpeg'))
+    image1 = editImage('moonland.jpeg')
 
     # Define the "date" text
     date_text = "1983/1/1"
