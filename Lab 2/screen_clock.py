@@ -116,5 +116,11 @@ while True:
     #draw.text((x,y), current_time, font=font, fill=255)
     # Display image.
     #disp.image(image, rotation)
-    back1()
+   # Define the "date" text
+    date_text = "1983/1/1"
+
+    # Center and wrap the "yes" text at the top of the screen
+    x1 = width*0.5
+    y1 = top  
+    draw.text((x1, y1), date_text, fill="#05b822", font=font)
     time.sleep(1)
