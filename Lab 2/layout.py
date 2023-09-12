@@ -65,12 +65,20 @@ def editImage(filename):
     image = Image.open(filename).convert("RGB")
     
     
-    # Resize the image to half of its current size
-    image = image.resize((width // 2, height // 2), Image.BICUBIC)
+     # Scale the image to the smaller screen dimension
+    image_ratio = image.width / image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = image.width * height // image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = image.height * width // image.width
+    image = image.resize((int(scaled_width*0.5), int(scaled_height*0.5)), Image.BICUBIC)
 
-    # Crop and center the image on the left side
-    x = 0  # Adjusted to start from the left
-    y = height // 5
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
     image = image.crop((x, y, x + width, y + height))
 
     
