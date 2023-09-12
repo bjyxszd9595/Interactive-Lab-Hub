@@ -79,30 +79,21 @@ def editImage(filename):
     image = image.crop((x, y, x + width, y + height))
     return image
 
-def back1():
-    
-    # Define the "date" text
-    date_text = "1983/1/1"
+def flyer():
+    image1 =  editImage('Group 2.png') 
+    disp.image(image1, rotation)
 
-    # Center and wrap the "yes" text at the top of the screen
+def moonland():
+    image1 =  editImage('Group 3.png') 
+    disp.image(image1, rotation)
     
-    y1 = top
-    draw.text((x, y1), date_text, fill="#05b822", font=font)
+def ww1():
+    image1 =  editImage('Group 4.png') 
+    disp.image(image1, rotation)   
 
-    # Define the content text
-    content_text = "THE INVENTION OF NETWORK"
-
-    # Center and wrap the "no" text below "yes"
-    
-    y2 = 0.2*height
-    draw.text((x, y2), content_text, fill="#05b822", font=font)
-
-    # Define the "continue" text
-    continue_text = "> Continue"
-   
-    y3 = height*0.7
-    draw.text((x, y3), continue_text, fill="#05b822", font=font)
-    
+def dns():
+    image1 =  editImage('Group 5.png') 
+    disp.image(image1, rotation)
 
     
 
@@ -110,8 +101,7 @@ while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
-    image1 =  editImage('Group 2.png') 
-    disp.image(image1, rotation)
+    dns()
     time.sleep(1)
     
     
