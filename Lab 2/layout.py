@@ -123,27 +123,11 @@ def back1():
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
-    #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
-    image1 = Image.open('moonland.jpeg')
-    # Scale the image to the smaller screen dimension
-    image_ratio = image1.width / image1.height
-    screen_ratio = width / height
-    if screen_ratio < image_ratio:
-        scaled_width = image1.width * height // image1.height
-        scaled_height = height
-    else:
-        scaled_width = width
-        scaled_height = image1.height * width // image1.width
-    image1 = image1.resize((scaled_width, scaled_height), Image.BICUBIC)
-    # Crop and center the image
-    x = scaled_width // 2 - width // 2
-    y = scaled_height // 2 - height // 2
-    image1 = image1.crop((x, y, x + width, y + height))
-   
+    
     date_text = "1983/1/1"
     y = top  
     draw.text((x, y), date_text, font=font,fill=255)
-    disp.image(image1, rotation)
+    disp.image(image, rotation)
     time.sleep(1)
     
     
