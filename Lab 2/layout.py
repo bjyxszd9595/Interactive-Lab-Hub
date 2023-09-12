@@ -64,22 +64,22 @@ backlight.value = True
 def editImage(filename):
     image = Image.open(filename).convert("RGB")
     
-    # Get the width and height of the screen
-    screen_width, screen_height = width, height
-    
-    # Calculate the new width (half of the screen width) while maintaining the aspect ratio
-    new_width = screen_width // 2
-    aspect_ratio = float(image.width) / image.height
-    new_height = int(new_width / aspect_ratio)
-    
-    # Resize the image to the left half of the screen
-    image = image.resize((new_width, new_height), Image.BICUBIC)
-    
-    # Calculate the position for drawing text on the right side
-    text_x = new_width  # Text starts from the right edge of the image
-    text_y = 0  # Adjust the Y position as needed
-    
-    return image, text_x, text_y
+    # Scale the image to the smaller screen dimension
+    image_ratio = image.width / image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = image.width * height // image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = image.height * width // image.width
+    image = image.resize((scaled_width/2, scaled_height/2), Image.BICUBIC)
+
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
+    image = image.crop((x, y, x + width, y + height))
+
 
 
 
@@ -90,10 +90,6 @@ while True:
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
     # Draw the image on the left
     image1 = editImage('wrightplane.jpeg')
-    image_x = 0 
-    image_y = 0  
-    image = Image.new("RGB", (width, height))
-    image.paste(image1, (image_x, image_y))
     
     
 
