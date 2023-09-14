@@ -84,11 +84,36 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
 
     #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
-    y=top
+    #y=top
     # Get the current time
-    current_time = strftime("%m/%d/%Y %H:%M:%S")
+    #current_time = strftime("%m/%d/%Y %H:%M:%S")
     # Draw the time text on the image
-    draw.text((x,y), current_time, font=font, fill=255)
+    #draw.text((x,y), current_time, font=font, fill=255)
+    # Display image.
+    #disp.image(image, rotation)
+    #time.sleep(1)
+    back_image = Image.open('wright.png')
+        # while not buttonB.value:
+        # Scale the image to the smaller screen dimension
+    image_ratio = back_image.width / back_image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = back_image.width * height // back_image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = back_image.height * width // back_image.width
+    back_image = back_image.resize((scaled_width, scaled_height), Image.BICUBIC)
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
+    back_image = back_image.crop((x, y, x + width, y + height))
+    image.paste(back_image, (0,0))
+    image.paste(back_image, (0,0))
+    image.paste(back_image, (0,0))
+        
+    draw.text((88, 54), "Invention of Wright", font=font, fill="#FFFFFF")      
+       
     # Display image.
     disp.image(image, rotation)
-    time.sleep(1)
+    time.sleep(0.15)
